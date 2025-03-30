@@ -121,3 +121,13 @@ const header = document.querySelector('header');
                 lightsaber.style.width = '0';
             });
         });
+
+        document.getElementById("downloadBtn").onclick = function() {
+            let fileUrl = "https://drive.google.com/uc?export=download&id=1LCSnEprQWBMWLyUaAhK5VHl1MS8Nc035";
+            let link = document.createElement("a");
+            link.href = fileUrl;
+            link.download = "document.pdf"; // This sets a default filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
