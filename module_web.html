@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Stars Animation -->
+    <div class="stars"></div>
+    
+    <!-- Dark Mode Transition -->
+    <div class="darkmode-transition"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-jedi"></i> PORT<span style="color: var(--secondary-color);">FOLIO</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#projects">WebDev</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="dark-mode-toggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Web Development</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./images/web1.1.png" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Day 1</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                        </div>
+                        <p class="project-description"><p>Today, We started learning HTML and understood how basic components works to form a basic webpage.</p>
+                        <ul>
+                            <li>Learned about the basic structure: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> 🎯</li>
+                            <li>Headings are super useful! <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> help organize content 🔠</li>
+                            <li>Experimented with links <code>&lt;a&gt;</code> 🔗 and images <code>&lt;img&gt;</code> 🖼️ – now my page looks more alive!</li>
+                        </ul></p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./images/web1.png" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Day 2</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                        </div>
+                        <p class="project-description"><p>Today was all about making things look better. Raw text is fine, but styling makes a difference!</p>
+                        <ul>
+                            <li>Played around with <b>bold</b>, <i>italic</i>, and <u>underlined</u> text 🎭 – it's fun to highlight things.</li>
+                            <li>Discovered <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> 📐 – still figuring out when to use them.</li>
+                            <li>Semantic tags like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> 📑 make the structure cleaner.</li>
+                        </ul></p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./images/web3.png" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Day 3</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML </span>
+                        </div>
+                        <p class="project-description"><p>Things got more interactive today! HTML isn't just for static text.</p>
+                        <ul>
+                            <li>Made lists: <code>&lt;ul&gt;</code> 🔘 and <code>&lt;ol&gt;</code> 1️⃣2️⃣3️⃣ – now my notes are more organized.</li>
+                            <li>Created a basic table 📊 – not as scary as I thought!</li>
+                            <li>Forms are fascinating! 📝 Adding inputs, checkboxes, and buttons felt like I'm creating something real.</li>
+                        </ul></p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./images/web4.png" alt="Project 4">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Day 4</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">CSS</span>
+                        </div>
+                        <p class="project-description">
+                            <p>Today, I dived into the world of CSS! Styling makes everything look better.</p>
+                            <ul>
+                                <li>Explored different fonts and how they impact design.</li>
+                                <li>Learned about the box model – margin, padding, and borders.</li>
+                                <li>Experimented with colors and background styles.</li>
+                                <li>Positioning elements with relative, absolute, and fixed positioning.</li>
+                                <li>Understood the different types of CSS: inline, internal, and external.</li>
+                                <li>Worked with selectors and their hierarchy to apply styles correctly.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="contact-heading">Get In Touch</h3>
+                    <p class="contact-text">Feel free to reach out if you have any questions or would like to collaborate on a project. I'm always open to discussing new opportunities and challenges.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>mammar1109@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91-98818-48251</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>SSGMCE, Shegaon, 444203</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/ammar-1109" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ammar_09881?igsh=ZHh2M3NyYnlvamxj" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#home" class="footer-logo">
+                <i class="fas fa-jedi"></i> PORTFOLIO
+            </a>
+            
+            <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#projects">WebDev</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
