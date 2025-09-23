@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Learning Journey - AIML Basics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        html, body {
+            font-family: 'Segoe UI', sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.7;
+            scroll-behavior:smooth;
+        }
+        body {
+            padding: 80px 5% 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 {
+            text-align:center;
+            font-size:2.5rem;
+            color:var(--primary);
+            margin-bottom:1.5rem;
+        }
+        .day {
+            background:var(--card-bg);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:14px;
+            padding:1.5rem;
+            margin-bottom:1.5rem;
+            transition:.3s;
+        }
+        .day:hover {
+            transform:translateY(-3px);
+            box-shadow:0 8px 25px rgba(74,158,255,0.15);
+        }
+        .day img {
+            width:100%;
+            border-radius:10px;
+            margin-bottom:1rem;
+        }
+        .day-title {
+            font-size:1.4rem;
+            font-weight:bold;
+            margin-bottom:.5rem;
+            color:var(--primary);
+        }
+        .day-title i {
+            margin-right:6px;
+            color:var(--primary-dark);
+        }
+        .mentor {
+            text-align:center;
+            margin-top:2rem;
+            font-size:1.1rem;
+            color:var(--text-muted);
+        }
+        .mentor span {
+            color:var(--primary);
+            font-weight:bold;
+        }
+        @media(max-width:600px){
+            h1 {font-size:2rem;}
+            .day {padding:1rem;}
+            .day-title {font-size:1.2rem;}
+        }
+
+    :root {
+        --primary: #4a9eff;
+        --primary-dark: #3d8bef;
+        --bg: #0f1115;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --text: #fff;
+        --text-muted: #aaa;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;}
+    header {position:fixed;top:0;left:0;right:0;background:rgba(15,17,21,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);}
+    .logo {font-size:1.6rem;font-weight:bold;color:var(--primary);text-decoration:none;}
+    .nav-links {display:flex;gap:2rem;list-style:none;}
+    .nav-links a {color:var(--text-muted);text-decoration:none;font-weight:500;transition:.3s;}
+    .nav-links a:hover, .nav-links a.active {color:var(--primary);}
+    .dark-mode-toggle {background:none;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;}
+
+    section {padding:100px 5% 60px;max-width:1200px;margin:auto;}
+    .section-title {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;}
+
+    .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+    .project-card {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:.3s;}
+    .project-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(74,158,255,0.15);}
+    .project-image img {width:100%;display:block;height:180px;object-fit:cover;}
+    .project-content {padding:1rem;}
+    .project-title {font-size:1.3rem;margin-bottom:.3rem;}
+    .project-tags {display:flex;gap:.5rem;margin-bottom:.5rem;flex-wrap:wrap;}
+    .project-tag {background:rgba(74,158,255,0.15);padding:3px 8px;border-radius:5px;font-size:.8rem;}
+    .project-description {color:var(--text-muted);font-size:.95rem;}
+
+    .mentors {margin-top:1rem;color:var(--primary);font-weight:500;font-size:0.95rem;}
+
+    footer {background:rgba(255,255,255,0.05);padding:2rem;text-align:center;margin-top:3rem;}
+    .footer-logo {font-size:1.5rem;color:var(--primary);text-decoration:none;display:inline-block;margin-bottom:.5rem;}
+    .footer-links {display:flex;justify-content:center;gap:1rem;margin:1rem 0;}
+    .footer-links a {color:var(--text-muted);text-decoration:none;transition:.3s;}
+    .footer-links a:hover {color:var(--primary);}
+    .footer-text {color:var(--text-muted);margin-top:.5rem;}
+
+    @media(max-width:768px){header{flex-direction:column;}.projects-grid{grid-template-columns:1fr;}}
+ 
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;padding:80px 5% 40px;max-width:1000px;margin:auto;}
+        h1 {text-align:center;font-size:2.5rem;color:var(--primary);margin-bottom:1.5rem;}
+        .day {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;transition:.3s;}
+        .day:hover {transform:translateY(-3px);box-shadow:0 8px 25px rgba(74,158,255,0.15);}
+        .day img {width:100%;border-radius:10px;margin-bottom:1rem;}
+        .day-title {font-size:1.4rem;font-weight:bold;margin-bottom:.5rem;color:var(--primary);}
+        .day-title i {margin-right:6px;color:var(--primary-dark);}
+        .mentor {text-align:center;margin-top:2rem;font-size:1.1rem;color:var(--text-muted);}
+        .mentor span {color:var(--primary);font-weight:bold;}
+        @media(max-width:600px){h1{font-size:2rem;}.day{padding:1rem;}.day-title{font-size:1.2rem;}}
+    </style>
+</head>
+<body>
+    <header>
+    <a href="#" class="logo">PORT<span style="color:var(--primary-dark);">FOLIO</span></a>
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#projects">laser</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+    </ul>
+</header>
+    <h1><i class="fas fa-robot"></i> 7-Day Learning Journey of AIML Basics</h1>
+
+    <div class="day">
+        <img src="images/day1.jpg" alt="Day 1">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 1 – Introduction to AI & ML</div>
+        <p>Learned the basics of Artificial Intelligence (AI) and Machine Learning (ML). Explored types of ML: supervised, unsupervised, and reinforcement learning.</p>
+        <p>✅ <strong>Activity:</strong> Listed 5 real-life AI/ML applications.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day2.jpg" alt="Day 2">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 2 – Python for AI/ML</div>
+        <p>Reviewed Python essentials, libraries like NumPy, Pandas, and Matplotlib. Learned data handling and basic visualization techniques.</p>
+        <p>✅ <strong>Activity:</strong> Loaded a dataset and visualized it using Matplotlib.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day3.jpg" alt="Day 3">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 3 – Data Preprocessing</div>
+        <p>Learned data cleaning, handling missing values, encoding categorical variables, and feature scaling.</p>
+        <p>✅ <strong>Activity:</strong> Preprocessed a sample dataset for ML modeling.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day4.jpg" alt="Day 4">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 4 – Supervised Learning</div>
+        <p>Understood regression (linear, multiple) and classification (logistic regression, decision trees). Learned model evaluation metrics.</p>
+        <p>✅ <strong>Activity:</strong> Built a linear regression model and evaluated its accuracy.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day5.jpg" alt="Day 5">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 5 – Unsupervised Learning</div>
+        <p>Learned clustering techniques (K-Means, Hierarchical) and dimensionality reduction (PCA).</p>
+        <p>✅ <strong>Activity:</strong> Applied K-Means clustering to a sample dataset and visualized clusters.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day6.jpg" alt="Day 6">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 6 – Neural Networks & Deep Learning</div>
+        <p>Introduction to neural networks, activation functions, and basic deep learning concepts using TensorFlow/Keras.</p>
+        <p>✅ <strong>Activity:</strong> Built a simple neural network for digit recognition (MNIST dataset).</p>
+    </div>
+
+    <div class="day">
+        <img src="images/day7.jpg" alt="Day 7">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 7 – Project & Review</div>
+        <p>Reviewed key concepts and best practices. Completed a mini project combining data preprocessing, modeling, and evaluation.</p>
+        <p>✅ <strong>Activity:</strong> Completed an end-to-end ML project and presented findings.</p>
+    </div>
+
+    <p class="mentor">👨‍🏫 <strong>Mentor:</strong> <span>Hriday Amle</span></p>
+</body>
+</html>

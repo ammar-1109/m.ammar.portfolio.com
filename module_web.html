@@ -3,233 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Mohammad Ammar - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
+    <style>
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family: 'Segoe UI', sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;}
+        header {position:fixed;top:0;left:0;right:0;background:rgba(15,17,21,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);}
+        .logo {font-size:1.6rem;font-weight:bold;color:var(--primary);text-decoration:none;}
+        .nav-links {display:flex;gap:2rem;list-style:none;}
+        .nav-links a {color:var(--text-muted);text-decoration:none;font-weight:500;transition:.3s;}
+        .nav-links a:hover, .nav-links a.active {color:var(--primary);}
+        .dark-mode-toggle {background:none;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;}
+
+        section {padding:100px 5% 60px;max-width:1200px;margin:auto;}
+        .section-title {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;}
+
+        .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+        .project-card {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:.3s;}
+        .project-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(74,158,255,0.15);}
+        .project-image img {width:100%;display:block;}
+        .project-content {padding:1rem;}
+        .project-title {font-size:1.3rem;margin-bottom:.3rem;}
+        .project-tags {display:flex;gap:.5rem;margin-bottom:.5rem;}
+        .project-tag {background:rgba(74,158,255,0.15);padding:3px 8px;border-radius:5px;font-size:.8rem;}
+        .project-description {color:var(--text-muted);font-size:.95rem;}
+
+        .contact-container {display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+        .contact-info, .contact-form {background:var(--card-bg);padding:2rem;border-radius:14px;border:1px solid rgba(255,255,255,0.08);}
+        .contact-heading {color:var(--primary);margin-bottom:.8rem;}
+        .contact-details {margin:1rem 0;}
+        .contact-detail {display:flex;gap:1rem;margin-bottom:1rem;}
+        .contact-icon i {color:var(--primary);font-size:1.2rem;}
+        .social-links {display:flex;gap:1rem;margin-top:1rem;}
+        .social-link {color:var(--text-muted);font-size:1.3rem;transition:.3s;}
+        .social-link:hover {color:var(--primary);}
+
+        form input, form textarea {width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;color:white;margin-bottom:1rem;}
+        .form-submit {background:var(--primary);color:white;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;transition:.3s;}
+        .form-submit:hover {background:var(--primary-dark);}
+
+        footer {background:rgba(255,255,255,0.05);padding:2rem;text-align:center;margin-top:3rem;}
+        .footer-logo {font-size:1.5rem;color:var(--primary);text-decoration:none;display:inline-block;margin-bottom:.5rem;}
+        .footer-links {display:flex;justify-content:center;gap:1rem;margin:1rem 0;}
+        .footer-links a {color:var(--text-muted);text-decoration:none;transition:.3s;}
+        .footer-links a:hover {color:var(--primary);}
+        .footer-text {color:var(--text-muted);margin-top:.5rem;}
+
+        @media(max-width:768px){.contact-container{grid-template-columns:1fr;}header{flex-direction:column;}}
+    </style>
 </head>
 <body>
-    <!-- Stars Animation -->
-    <div class="stars"></div>
-    
-    <!-- Dark Mode Transition -->
-    <div class="darkmode-transition"></div>
-    
-    <!-- Header -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                </i> PORT<span style="color: var(--secondary-color);">FOLIO</span>
-            </a>
-            
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="#projects">WebDev</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                    <button class="dark-mode-toggle" title="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
+        <a href="#" class="logo">PORT<span style="color:var(--primary-dark);">FOLIO</span></a>
+        <ul class="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#projects">WebDev</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+        </ul>
     </header>
 
     <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Web Development</h2>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./images/web1.1.png" alt="Project 1">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Day 1</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                        </div>
-                        <p class="project-description"><p>Today, We started learning HTML and understood how basic components works to form a basic webpage.</p>
-                        <ul>
-                            <li>Learned about the basic structure: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> 🎯</li>
-                            <li>Headings are super useful! <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> help organize content 🔠</li>
-                            <li>Experimented with links <code>&lt;a&gt;</code> 🔗 and images <code>&lt;img&gt;</code> 🖼️ – now my page looks more alive!</li>
-                        </ul></p>
-                        
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./images/web1.png" alt="Project 2">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Day 2</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                        </div>
-                        <p class="project-description"><p>Today was all about making things look better. Raw text is fine, but styling makes a difference!</p>
-                        <ul>
-                            <li>Played around with <b>bold</b>, <i>italic</i>, and <u>underlined</u> text 🎭 – it's fun to highlight things.</li>
-                            <li>Discovered <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> 📐 – still figuring out when to use them.</li>
-                            <li>Semantic tags like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> 📑 make the structure cleaner.</li>
-                        </ul></p>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./images/web3.png" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Day 3</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML </span>
-                        </div>
-                        <p class="project-description"><p>Things got more interactive today! HTML isn't just for static text.</p>
-                        <ul>
-                            <li>Made lists: <code>&lt;ul&gt;</code> 🔘 and <code>&lt;ol&gt;</code> 1️⃣2️⃣3️⃣ – now my notes are more organized.</li>
-                            <li>Created a basic table 📊 – not as scary as I thought!</li>
-                            <li>Forms are fascinating! 📝 Adding inputs, checkboxes, and buttons felt like I'm creating something real.</li>
-                        </ul></p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./images/web4.png" alt="Project 4">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Day 4</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <p class="project-description">
-                            <p>Today, I dived into the world of CSS! Styling makes everything look better.</p>
-                            <ul>
-                                <li>Explored different fonts and how they impact design.</li>
-                                <li>Learned about the box model – margin, padding, and borders.</li>
-                                <li>Experimented with colors and background styles.</li>
-                                <li>Positioning elements with relative, absolute, and fixed positioning.</li>
-                                <li>Understood the different types of CSS: inline, internal, and external.</li>
-                                <li>Worked with selectors and their hierarchy to apply styles correctly.</li>
-                            </ul>
-                        </p>
-                    </div>
+        <h2 class="section-title">Web Development</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image"><img src="./images/web1.1.png" alt="Day 1"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Day 1</h3>
+                    <div class="project-tags"><span class="project-tag">HTML</span></div>
+                    <p class="project-description">Learned basic HTML structure, headings, links, and images.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="contact-heading">Get In Touch</h3>
-                    <p class="contact-text">Feel free to reach out if you have any questions or would like to collaborate on a project. I'm always open to discussing new opportunities and challenges.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>mammar1109@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+91-98818-48251</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>SSGMCE, Shegaon, 444203</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/ammar-1109" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.instagram.com/ammar_09881?igsh=ZHh2M3NyYnlvamxj" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form action="https://api.web3forms.com/submit" method="post" id="contactForm">
-                        <input type="hidden" name="apikey" value="4b837717-2f77-4383-aa00-e564cf92debf">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="form-submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="#home" class="footer-logo">
-                </i> PORTFOLIO
-            </a>
-            
-            <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
-            
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#projects">WebDev</a>
-                <a href="#contact">Contact</a>
-            </div>
-            
-            <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
+            <div class="project-card">
+                <div class="project-image"><img src="./images/web1.png" alt="Day 2"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Day 2</h3>
+                    <div class="project-tags"><span class="project-tag">HTML</span></div>
+                    <p class="project-description">Explored bold, italic, div/span, and semantic tags.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="./images/web3.png" alt="Day 3"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Day 3</h3>
+                    <div class="project-tags"><span class="project-tag">HTML</span></div>
+                    <p class="project-description">Practiced lists, tables, and forms for interactivity.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="./images/web4.png" alt="Day 4"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Day 4</h3>
+                    <div class="project-tags"><span class="project-tag">CSS</span></div>
+                    <p class="project-description">Learned CSS basics: fonts, box model, positioning, and selectors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 class="contact-heading">Get In Touch</h3>
+                <p class="contact-text">Open to collaborations and discussions.</p>
+                <div class="contact-details">
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>mammar1109@gmail.com</p></div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+91-98818-48251</p></div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Location</h4><p>SSGMCE, Shegaon</p></div></div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ammar-1109" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ammar_09881" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="https://api.web3forms.com/submit" method="post">
+                    <input type="hidden" name="apikey" value="4b837717-2f77-4383-aa00-e564cf92debf">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#home" class="footer-logo">PORTFOLIO</a>
+        <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#projects">WebDev</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IoT & PCB Design Portfolio - Mohammad Ammar</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary: #4a9eff;
+        --primary-dark: #3d8bef;
+        --bg: #0f1115;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --text: #fff;
+        --text-muted: #aaa;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;}
+    header {position:fixed;top:0;left:0;right:0;background:rgba(15,17,21,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);}
+    .logo {font-size:1.6rem;font-weight:bold;color:var(--primary);text-decoration:none;}
+    .nav-links {display:flex;gap:2rem;list-style:none;}
+    .nav-links a {color:var(--text-muted);text-decoration:none;font-weight:500;transition:.3s;}
+    .nav-links a:hover, .nav-links a.active {color:var(--primary);}
+    .dark-mode-toggle {background:none;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;}
+
+    section {padding:100px 5% 60px;max-width:1200px;margin:auto;}
+    .section-title {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;}
+
+    .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+    .project-card {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:.3s;}
+    .project-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(74,158,255,0.15);}
+    .project-image img {width:100%;display:block;height:180px;object-fit:cover;}
+    .project-content {padding:1rem;}
+    .project-title {font-size:1.3rem;margin-bottom:.3rem;}
+    .project-tags {display:flex;gap:.5rem;margin-bottom:.5rem;flex-wrap:wrap;}
+    .project-tag {background:rgba(74,158,255,0.15);padding:3px 8px;border-radius:5px;font-size:.8rem;}
+    .project-description {color:var(--text-muted);font-size:.95rem;}
+
+    .mentors {margin-top:1rem;color:var(--primary);font-weight:500;font-size:0.95rem;}
+
+    footer {background:rgba(255,255,255,0.05);padding:2rem;text-align:center;margin-top:3rem;}
+    .footer-logo {font-size:1.5rem;color:var(--primary);text-decoration:none;display:inline-block;margin-bottom:.5rem;}
+    .footer-links {display:flex;justify-content:center;gap:1rem;margin:1rem 0;}
+    .footer-links a {color:var(--text-muted);text-decoration:none;transition:.3s;}
+    .footer-links a:hover {color:var(--primary);}
+    .footer-text {color:var(--text-muted);margin-top:.5rem;}
+
+    @media(max-width:768px){header{flex-direction:column;}.projects-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">PORT<span style="color:var(--primary-dark);">FOLIO</span></a>
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#projects">IoT & PCB</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+    </ul>
+</header>
+
+<section id="projects">
+    <h2 class="section-title">IoT & PCB Design – 7-Day Learning Journey</h2>
+    <div class="projects-grid">
+        <!-- Day 1 -->
+        <div class="project-card">
+            <div class="project-image"><img src="data:image/jpeg;base64,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" alt="Day 1"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 1</h3>
+                <div class="project-tags"><span class="project-tag">IoT</span><span class="project-tag">ESP8266</span></div>
+                <p class="project-description">Introduction to ESP8266, pinout, specs. Installed Arduino IDE and set up ESP8266 board. Programmed internal & external LEDs to blink via GPIO.</p>
+            </div>
+        </div>
+        <!-- Day 2 -->
+        <div class="project-card">
+            <div class="project-image"><img src="images/wifi.jpeg" alt="Day 2"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 2</h3>
+                <div class="project-tags"><span class="project-tag">IoT</span><span class="project-tag">Wi-Fi</span></div>
+                <p class="project-description">Learned Wi-Fi basics for IoT. Connected ESP8266 to network, printed IP address, and created a simple web server to control LED via browser.</p>
+            </div>
+        </div>
+        <!-- Day 3 -->
+        <div class="project-card">
+            <div class="project-image"><img src="https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2021/06/ESP8266-NodeMCU-Board-HC-SR04-Ultrasonic-Sensor-Module-Arduino-Demonstration.jpg?resize=750%2C422&quality=100&strip=all&ssl=1" alt="Day 3"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 3</h3>
+                <div class="project-tags"><span class="project-tag">IoT</span><span class="project-tag">Sensors</span></div>
+                <p class="project-description">Used ultrasonic sensor with ESP8266. Measured distance, printed to Serial Monitor, and displayed live data on a web page for real-time monitoring.</p>
+            </div>
+        </div>
+        <!-- Day 4 -->
+        <div class="project-card">
+            <div class="project-image"><img src="https://iotdesignpro.com/sites/default/files/main-image/Home-Automation-with-MIT-App-Inventor-and-ESP8266.jpg" alt="Day 4"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 4</h3>
+                <div class="project-tags"><span class="project-tag">IoT</span><span class="project-tag">App Inventor</span></div>
+                <p class="project-description">Discussed mini IoT project, designed app using MIT App Inventor, connected app to ESP8266, and tested sensor data display and control functionalities.</p>
+            </div>
+        </div>
+        <!-- Day 5 -->
+        <div class="project-card">
+            <div class="project-image"><img src="https://www.powerelectronicsnews.com/wp-content/uploads/sites/3/2018/03/PIDWebinar3-3-5_Step-3-Get-Snubbers-in-Tight-Loops.jpg?fit=550%2C341" alt="Day 5"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 5</h3>
+                <div class="project-tags"><span class="project-tag">PCB</span><span class="project-tag">Schematic</span></div>
+                <p class="project-description">Designed AC to DC converter schematic. Learned PCB basics: layers, traces, vias, footprints, design rules, and real-life PCB applications.</p>
+            </div>
+        </div>
+        <!-- Day 6 -->
+        <div class="project-card">
+            <div class="project-image"><img src="https://resources.altium.com/sites/default/files/blogs/How%20to%20Create%20a%20PCB%20Layout%20from%20a%20Schematic%20in%20Altium%20Designer-67862.jpg" alt="Day 6"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 6</h3>
+                <div class="project-tags"><span class="project-tag">PCB</span><span class="project-tag">Layout</span></div>
+                <p class="project-description">Converted schematic to PCB layout. Practiced component placement, routing, and DRC checks. Hands-on session under mentor guidance.</p>
+            </div>
+        </div>
+        <!-- Day 7 -->
+        <div class="project-card">
+            <div class="project-image"><img src="https://circuitstoday.com/wp-content/uploads/2011/02/dc-motor-controller.png" alt="Day 7"></div>
+            <div class="project-content">
+                <h3 class="project-title">Day 7</h3>
+                <div class="project-tags"><span class="project-tag">PCB</span><span class="project-tag">DC Motor</span></div>
+                <p class="project-description">Designed DC motor speed controller schematic and layout. Routed connections, discussed simulation, real-world implementation, and cleared Q&A.</p>
+                <div class="mentors">Mentors: Rakesh Lande (RL), Rohan Khandar (RK), Tejas Tarankar (TT)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3 class="contact-heading">Get In Touch</h3>
+            <p class="contact-text">Open to collaborations and discussions.</p>
+            <div class="contact-details">
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>mammar1109@gmail.com</p></div></div>
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+91-98818-48251</p></div></div>
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Location</h4><p>SSGMCE, Shegaon</p></div></div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/ammar-1109" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/ammar_09881" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <a href="#home" class="footer-logo">PORTFOLIO</a>
+    <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#projects">IoT & PCB</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
+</footer>
+
+<script>
+    const toggle = document.querySelector('.dark-mode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+
+</body>
+</html>

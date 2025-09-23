@@ -3,462 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Mohammad Ammar - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
+    <style>
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(15, 17, 21, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {font-size: 1.6rem; font-weight: bold; color: var(--primary); text-decoration:none;}
+        .nav-links {display: flex; gap: 2rem; list-style: none;}
+        .nav-links a {color: var(--text-muted); text-decoration: none; font-weight: 500; transition: .3s;}
+        .nav-links a:hover, .nav-links a.active {color: var(--primary);}
+
+        .main-container {
+            max-width: 1200px;
+            margin: 120px auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary), #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {color: var(--text-muted); font-size: 1.2rem; margin: .5rem 0 1.5rem;}
+        .description {color: #bbb; margin-bottom: 2rem;}
+
+        .cta-buttons {display: flex; gap: 1rem;}
+        .btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .3s;
+        }
+        .btn-primary {background: var(--primary); color: white;}
+        .btn-primary:hover {background: var(--primary-dark); transform: scale(1.05);}
+        .btn-secondary {border: 2px solid var(--primary); color: var(--primary); background:transparent;}
+        .btn-secondary:hover {background: var(--primary); color: white;}
+
+        .hero-image {display:flex; justify-content:center; align-items:center; margin-top:2rem;}
+        .hero-image i {font-size: 5rem; color: var(--primary);}
+
+        .projects-section h2,
+        .fablab-section h2 {font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary);}
+
+        .projects-grid {display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem;}
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+        .project-card:hover {transform: translateY(-5px); box-shadow: 0 10px 30px rgba(74, 158, 255, 0.15);}
+        .project-title {font-size: 1.3rem; margin-bottom: .3rem;}
+        .project-description {color: var(--text-muted); font-size: .95rem; margin-bottom: .8rem;}
+        .project-tags {display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem;}
+        .project-tag {background: rgba(74, 158, 255, 0.15); padding: 4px 8px; border-radius: 5px; font-size:.8rem;}
+
+        .modules-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:1rem;}
+        .module-card {background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1rem; text-align: center; transition:.3s;}
+        .module-card:hover {transform: translateY(-3px); border-color: var(--primary);}
+
+        .skills-section {background: var(--card-bg); padding: 2rem; border-radius: 14px; margin-top: 2rem;}
+        .skills-section h3 {color: var(--primary); margin-bottom: 1rem;}
+        .skills-list {display: flex; flex-wrap: wrap; gap: 1rem;}
+        .skill-item {display: flex; align-items: center; gap: .5rem; color: var(--text-muted);}
+
+        .contact-form {background: var(--card-bg); padding: 2rem; border-radius: 14px; margin-top: 2rem;}
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .submit-btn {background: var(--primary); color:white; border:none; padding: 12px 20px; border-radius: 8px; cursor:pointer; transition:.3s;}
+        .submit-btn:hover {background: var(--primary-dark);}
+
+        @media (max-width: 768px) {
+            .main-container {grid-template-columns: 1fr;}
+            .hero-content h1 {font-size: 2.2rem;}
+        }
+.hero-image {
+    width: 150px;          /* container width */
+    height: 150px;         /* container height */
+    margin: 50px auto;     /* center horizontally */
+    overflow: hidden;      /* hide the bottom half */
+    border-radius: 15%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* fills the container */
+    object-position: top;   /* shows upper part of the image */
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s forwards;
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.main-container {
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap; /* ensures responsiveness */
+    gap: 3rem;
+}
+
+.left-section {
+    flex: 1 1 400px; /* grow, shrink, base width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-section {
+    flex: 2 1 600px;
+}
+.left-section {
+    flex: 1 1 100%;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* space between text and image */
+    flex-wrap: wrap; /* for responsiveness on small screens */
+}
+
+.hero-content {
+    flex: 1 1 400px; /* text takes remaining space */
+}
+
+.hero-image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15%;
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s forwards;
+}
+
+
+    </style>
 </head>
 <body>
-    <!-- Stars Animation -->
-    <div class="stars"></div>
-    
-    <!-- Dark Mode Transition -->
-    <div class="darkmode-transition"></div>
-    
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="https://drive.google.com/uc?export=download&id=1LCSnEprQWBMWLyUaAhK5VHI1MS8Nc035" class="logo">
-                </i> PORT<span style="color: var(--secondary-color);">FOLIO</span>
-            </a>
-            
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#modules">Fablab</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                    <button class="dark-mode-toggle" title="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </header>
-    
-    <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <div class="home-content">
-                <p class="home-subtitle">WELCOME!</p>
-                <h1 class="home-title">I'm <span style="color: var(--primary-color);">Mohammad Ammar </span></h1>
-                <p class="home-description">Developer | Backend Engineer | Project Lead | Web Developer
+    <nav>
+        <a href="#" class="logo">Mohammad Ammar</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-                    Main Skills: C | Python | Flask | Web Development | SQLite | AI/ML
-                    
-                    Interests: Data Science | AI/ML | Project Management | Cinephile | Learning New Technologies | Leadership</p>
-                <div class="home-cta">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
+    <div class="left-section">
+    <div class="hero-wrapper">
+        <div class="hero-content">
+            <h1>Hi, I'm Mohammad Ammar</h1>
+            <p class="subtitle">Software Engineer & Aspiring ML Engineer</p>
+            <p class="description">
+                Developer | Backend Engineer | Project Lead | Web Developer<br><br>
+                Main Skills: C | Python | Flask | Web Development | SQLite | AI/ML<br><br>
+                Interests: Data Science | AI/ML | Project Management | Cinephile | Learning New Technologies | Leadership
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#" class="btn btn-secondary">Download Resume</a>
             </div>
         </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="about-image">
-                <img src="./images/profile.png" alt="Professional Photo">
-            </div>
-            <h2 class="section-title">About Me</h2>
-            
-            <div class="about-content">
-                
-                
-                <div class="about-info">
-                    <h3> Who am I ?</h3>
-                    <div class="about-bio">
-                        <p>A passionate developer with experience in C, Python, web development, and backend technologies like Flask and SQLite. I have worked on several projects, including an AI-integrated educational platform, a simple bank system in C, and project management initiatives. As a project lead, I have successfully guided teams and executed impactful projects. Additionally, </p>
-                        <p></p>I have knowledge of AI/ML, bringing intelligent solutions to development. Always eager to learn and innovate, I strive to push the boundaries of technology.</p>
-                    </div>
-                    
-                    <div class="skills-container">
-                        <div class="skill-category">
-                            <h4>Technical Skills</h4>
-                            <div class="skills">
-                                <span class="skill-item">Web Development</span>
-                                <span class="skill-item">CAD</span>
-                                <span class="skill-item">CAC</span>
-                                <span class="skill-item">3D Printing</span>
-                                <span class="skill-item">PCB Design</span>
-                                <span class="skill-item">IoT</span>
-                                <span class="skill-item">Java</span>
-                                <span class="skill-item">Networking</span>
-                                <span class="skill-item">AI/ML</span>
-                                <span class="skill-item">C</span>
-                                <span class="skill-item">Python</span>
-                                <span class="skill-item">Flask</span>
-                                <span class="skill-item">SQLite</span>
-                                <span class="skill-item">Backend Development</span>
-                                <span class="skill-item">Project Management</span>
-                                <span class="skill-item">Leadership</span>
 
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Programming Languages</h4>
-                            <div class="skills">
-                                <span class="skill-item">HTML/CSS</span>
-                                <span class="skill-item">JavaScript</span>
-                                <span class="skill-item">Python</span>
-                                <span class="skill-item">Java</span>
-                                <span class="skill-item">C/C++</span>
-                                <span class="skill-item">SQL</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary download-cv">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                </div>
-            </div>
+        <div class="hero-image">
+            <img src="images/profile.png" alt="Mohammad Ammar" class="slide-down">
         </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.goodvibeblog.com/wp-content/uploads/2023/05/flashcards2-800x510.jpg" alt="Project 1">
-                    </div>
-                    <div class="project-content">
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div class="right-section">
+            <div class="projects-section" id="projects">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project Cards (same as before, just styled better) -->
+                    <div class="project-card">
                         <h3 class="project-title">Flashy Learn</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Dev</span>
-                            <span class="project-tag">Backend </span>
-                            <span class="project-tag">Project Management</span>
-                        </div>
-                        <p class="project-description">An <b>AI-integrated flashcard maker</b> that helps students create, organize, and review flashcards efficiently. It leverages advanced AI to generate smart flashcards and provide personalized learning recommendations. It includes a progress tracker to monitor learning and adapt study sessions based on performance, enhancing retention and optimizing study habits with intelligent insights.</p>
-                        <div class="project-links">
-                            <a href="#" title="View Code"><i class="fas fa-code"></i></a>
-                            <a href="#" title="View Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                        <p class="project-description">AI-integrated flashcard maker for efficient studying</p>
+                        <div class="project-tags"><span class="project-tag">Web Dev</span><span class="project-tag">AI/ML</span></div>
                     </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://user-images.githubusercontent.com/102174805/187029436-ee2149f4-43db-4145-b67d-a16bb4317357.png" alt="Project 2">
-                    </div>
-                    <div class="project-content">
+                    <div class="project-card">
                         <h3 class="project-title">Amazon Clone</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">WEB Dev</span>
-                            <span class="project-tag">HTML </span>
-                        </div>
-                        <p class="project-description">A simple Amazon clone built using only <b>HTML and CSS </b>, replicating the basic layout and design of the Amazon homepage. It features a structured navigation bar, product sections, banners, and a responsive grid layout. While it lacks functionality like search and checkout, it visually mimics the original site's UI, showcasing clean design and CSS styling techniques.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/ammar-1109/www.amazoncart.com" title="View Code"><i class="fas fa-code"></i></a>
-                            <a href="#" title="View Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                        <p class="project-description">E-commerce platform built with HTML and CSS</p>
+                        <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span></div>
                     </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.paymentscardsandmobile.com/wp-content/uploads/2017/04/openbankingfull-782x436.jpg" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Simple Bank system</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">C </span>
-                            <span class="project-tag">File I/O</span>
-                        </div>
-                        <p class="project-description">A simple banking system built in <b>C</b>, primarily using <b>file I/O</b> to manage user accounts, transactions, and balances. It allows users to create accounts, deposit, withdraw, and view account details, storing all data securely in files. Designed for basic banking operations without a database, ensuring efficient data handling through file management.</p>
-                        <div class="project-links">
-                            <a href="#" title="View Code"><i class="fas fa-code"></i></a>
-                            <a href="#" title="View Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                    <div class="project-card">
+                        <h3 class="project-title">Simple Bank System</h3>
+                        <p class="project-description">Banking system built in C with file I/O operations</p>
+                        <div class="project-tags"><span class="project-tag">C</span><span class="project-tag">File I/O</span></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Modules Section -->
-    <section id="modules">
-        <div class="container">
-            <h2 class="section-title">Fab Lab</h2>
-            
-            <div class="modules-grid">
-                <!-- Module 1: Web Development -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="module-title">Web Development</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Creating responsive, interactive web applications using modern technologies and frameworks. Skilled in frontend and backend development.
-                            <a href="./module_web.html">read more </a>
-                        </p>
-                        <div class="module-skills">
-                            <span class="module-skill">HTML</span>
-                            <span class="module-skill">CSS</span>
-                            <span class="module-skill">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 2: CAD -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3 class="module-title">CAD</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Computer-aided design for creating precise 3D models and technical drawings for manufacturing and production.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">SolidWorks</span>
-                            <span class="module-skill">AutoCAD</span>
-                            <span class="module-skill">Fusion 360</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 3: CAC -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="module-title">CAC</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Computer-aided construction for optimizing building processes, structural analysis, and project management.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">BIM</span>
-                            <span class="module-skill">Revit</span>
-                            <span class="module-skill">SketchUp</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 4: 3D Printing -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h3 class="module-title">3D Printing</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Additive manufacturing techniques for rapid prototyping and production of complex geometries.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">FDM</span>
-                            <span class="module-skill">Slicing</span>
-                            <span class="module-skill">Materials</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 5: PCB Design -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3 class="module-title">PCB Design</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Creating electronic circuit boards for custom hardware solutions and embedded systems.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">Eagle</span>
-                            <span class="module-skill">KiCad</span>
-                            <span class="module-skill">Altium</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 6: IoT -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3 class="module-title">IoT</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Developing connected devices and systems that communicate over networks to collect and exchange data.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">Arduino</span>
-                            <span class="module-skill">Raspberry Pi</span>
-                            <span class="module-skill">MQTT</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 7: Java -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fab fa-java"></i>
-                        </div>
-                        <h3 class="module-title">Java</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Building robust, scalable applications and services using the Java programming language and ecosystem.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">Core Java</span>
-                            <span class="module-skill">Spring</span>
-                            <span class="module-skill">Android</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 8: Networking -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="module-title">Networking</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Designing, implementing, and securing computer networks for reliable and efficient communication.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">TCP/IP</span>
-                            <span class="module-skill">Routing</span>
-                            <span class="module-skill">Security</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Module 9: AI/ML -->
-                <div class="module-card">
-                    <div class="module-content">
-                        <div class="module-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="module-title">AI/ML</h3>
-                        <div class="lightsaber"></div>
-                        <p class="module-description">Developing intelligent systems using machine learning algorithms and artificial intelligence techniques.</p>
-                        <div class="module-skills">
-                            <span class="module-skill">TensorFlow</span>
-                            <span class="module-skill">PyTorch</span>
-                            <span class="module-skill">NLP</span>
-                        </div>
-                    </div>
+
+            <div class="fablab-section">
+                <h2>Fab Lab Modules</h2>
+                <div class="modules-grid">
+                    <div class="module-card"><a href="module_web.html"><i class="fas fa-code"></i><h4>Web Development</h4></a></div>
+                    <div class="module-card"><a href="3d.html"><i class="fas fa-cube"></i><h4>3D Printing</h4></a></div>
+                    <div class="module-card"><a href="pcb.html"><i class="fas fa-microchip"></i><h4>PCB Design</h4></a></div>
+                    <div class="module-card"><a href="module_web.html"><i class="fas fa-drafting-compass"></i><h4>CAD</h4></a></div>
+                    <div class="module-card"><a href="cutting.html"><i class="fas fa-bolt"></i><h4>Laser Cutting</h4></a></div>
+                    <div class="module-card"><a href="aiml.html"><i class="fas fa-brain"></i><h4>AI/ML</h4></a></div>
+                    <div class="module-card"><a href="module_web.html"><i class="fas fa-mug-hot"></i><h4>JAVA</h4></a></div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="contact-heading">Get In Touch</h3>
-                    <p class="contact-text">Feel free to reach out if you have any questions or would like to collaborate on a project. I'm always open to discussing new opportunities and challenges.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>mammar1109@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+91-98818-48251</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>SSGMCE, Shegaon, 444203</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/ammar-1109" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.instagram.com/ammar_09881?igsh=ZHh2M3NyYnlvamxj" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form action="https://api.web3forms.com/submit" method="post" id="contactForm">
-                        <input type="hidden" name="apikey" value="4b837717-2f77-4383-aa00-e564cf92debf">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="form-submit">Send Message</button>
-                    </form>
+
+            <div class="skills-section" id="skills">
+                <h3>Skills</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+<div class="skill-item"><i class="fab fa-java"></i> Java</div>
+<div class="skill-item"><i class="fas fa-code"></i> C/C++</div>
+<div class="skill-item"><i class="fas fa-feather"></i> Flask</div>
+<div class="skill-item"><i class="fas fa-leaf"></i> Django</div>
+<div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+<div class="skill-item"><i class="fas fa-server"></i> Backend</div>
+<div class="skill-item"><i class="fas fa-network-wired"></i> Networking</div>
+<div class="skill-item"><i class="fas fa-microchip"></i> Embedded Systems</div>
+<div class="skill-item"><i class="fas fa-project-diagram"></i> Project Management</div>
+<div class="skill-item"><i class="fas fa-laptop-code"></i> Web Development</div>
+<div class="skill-item"><i class="fas fa-cube"></i> 3D Printing</div>
+<div class="skill-item"><i class="fas fa-ruler-combined"></i> CAD / Designing</div>
+<div class="skill-item"><i class="fas fa-robot"></i> AI / ML</div>
+<div class="skill-item"><i class="fas fa-bolt"></i> Laser Cutting</div>
+<div class="skill-item"><i class="fas fa-drafting-compass"></i> Electronics</div>
+<div class="skill-item"><i class="fas fa-database"></i> Databases</div>
+
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="#home" class="footer-logo">
-               </i> PORTFOLIO
-            </a>
-            
-            <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
-            
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#modules">Modules</a>
-                <a href="#contact">Contact</a>
+            <div class="contact-info">
+                <h3 class="contact-heading">Get In Touch</h3>
+                <p class="contact-text">Open to collaborations and discussions.</p>
+                <div class="contact-details">
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>mammar1109@gmail.com</p></div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+91-98818-48251</p></div></div>
+                    <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Location</h4><p>SSGMCE, Shegaon</p></div></div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ammar-1109" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammad-ammar-8a22b8311/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ammar_09881" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            
-            <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
+            <div class="contact-form" id="contact">
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </div>
-    </footer>
-    <script src="script.js"></script>
+    </div>
 </body>
 </html>
