@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Learning Journey – CAD (Fusion 360)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        html, body {
+            font-family: 'Segoe UI', sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.7;
+            scroll-behavior:smooth;
+        }
+        body {
+            padding: 80px 5% 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 {
+            text-align:center;
+            font-size:2.5rem;
+            color:var(--primary);
+            margin-bottom:1.5rem;
+        }
+        .day {
+            background:var(--card-bg);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:14px;
+            padding:1.5rem;
+            margin-bottom:1.5rem;
+            transition:.3s;
+        }
+        .day:hover {
+            transform:translateY(-3px);
+            box-shadow:0 8px 25px rgba(74,158,255,0.15);
+        }
+        .day img {
+            width:100%;
+            border-radius:10px;
+            margin-bottom:1rem;
+        }
+        .day-title {
+            font-size:1.4rem;
+            font-weight:bold;
+            margin-bottom:.5rem;
+            color:var(--primary);
+        }
+        .day-title i {
+            margin-right:6px;
+            color:var(--primary-dark);
+        }
+        .mentor {
+            text-align:center;
+            margin-top:2rem;
+            font-size:1.1rem;
+            color:var(--text-muted);
+        }
+        .mentor span {
+            color:var(--primary);
+            font-weight:bold;
+        }
+        @media(max-width:600px){
+            h1 {font-size:2rem;}
+            .day {padding:1rem;}
+            .day-title {font-size:1.2rem;}
+        }
+    </style>
+</head>
+<body>
+    <h1><i class="fas fa-drafting-compass"></i> 7-Day Learning Journey – CAD (Fusion 360)</h1>
+
+    <div class="day">
+        <img src="images/cad-sketch.jpg" alt="Day 1 – 2D Sketching">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 1 – Interface & Sketching</div>
+        <p>Got familiar with <strong>Fusion 360 interface</strong>, workspaces, and navigation. Learned to create basic 2D sketches with lines, rectangles, and circles.</p>
+        <p>✅ <strong>Activity:</strong> Created a simple sketch and added basic dimensions.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-constraints.jpg" alt="Day 2 – Constraints">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 2 – Constraints & Parametric Design</div>
+        <p>Understood geometric and dimensional constraints. Learned how to make fully constrained sketches for precision modeling.</p>
+        <p>✅ <strong>Activity:</strong> Practiced parametric modeling with editable dimensions.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-3d-model.jpg" alt="Day 3 – 3D Modeling">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 3 – 3D Features</div>
+        <p>Converted sketches into 3D bodies using <strong>Extrude</strong>, <strong>Revolve</strong>, <strong>Loft</strong>, and <strong>Sweep</strong> tools.</p>
+        <p>✅ <strong>Activity:</strong> Modeled a simple part with revolve + fillet operations.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-assembly.jpg" alt="Day 4 – Assemblies">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 4 – Assemblies & Joints</div>
+        <p>Learnt how to assemble multiple components and simulate motion using <strong>Joints</strong> and <strong>As-Built Joints</strong>.</p>
+        <p>✅ <strong>Activity:</strong> Created a simple hinge mechanism and tested motion.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-advanced.jpg" alt="Day 5 – Advanced Modeling">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 5 – Advanced Modeling</div>
+        <p>Explored advanced tools like <strong>Shell, Pattern, and Combine</strong> for creating complex shapes.</p>
+        <p>✅ <strong>Activity:</strong> Modeled a hollow container using shell + pattern.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-render.jpg" alt="Day 6 – Rendering">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 6 – Rendering</div>
+        <p>Applied realistic materials, textures, and lighting setups to generate high-quality renders.</p>
+        <p>✅ <strong>Activity:</strong> Rendered final model and created a presentation image.</p>
+    </div>
+
+    <div class="day">
+        <img src="images/cad-export.jpg" alt="Day 7 – Export & Manufacturing">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 7 – Export & 3D Printing Prep</div>
+        <p>Learned how to export models for <strong>3D Printing</strong> and CNC manufacturing (.STL, .STEP formats).</p>
+        <p>✅ <strong>Activity:</strong> Prepared model for slicing and manufacturing.</p>
+    </div>
+
+    <p class="mentor">👨‍🏫 <strong>Mentor:</strong> <span>Vansh Jaiswal (VJ)</span></p>
+</body>
+</html>

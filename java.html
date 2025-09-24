@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Learning Journey - OOPs with Java</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        html, body {
+            font-family: 'Segoe UI', sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.7;
+            scroll-behavior:smooth;
+        }
+        body {
+            padding: 80px 5% 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 {
+            text-align:center;
+            font-size:2.5rem;
+            color:var(--primary);
+            margin-bottom:1.5rem;
+        }
+        .overview {
+            background:var(--card-bg);
+            padding:1rem 1.5rem;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,0.08);
+            margin-bottom:1.5rem;
+            font-size:1rem;
+        }
+        .day {
+            background:var(--card-bg);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:14px;
+            padding:1.5rem;
+            margin-bottom:1.5rem;
+            transition:.3s;
+        }
+        .day:hover {
+            transform:translateY(-3px);
+            box-shadow:0 8px 25px rgba(74,158,255,0.15);
+        }
+        .day-title {
+            font-size:1.4rem;
+            font-weight:bold;
+            margin-bottom:.5rem;
+            color:var(--primary);
+        }
+        .day-title i {
+            margin-right:6px;
+            color:var(--primary-dark);
+        }
+        pre {
+            background:#1a1d24;
+            padding:1rem;
+            border-radius:8px;
+            overflow-x:auto;
+            font-size:0.9rem;
+            margin-top:0.5rem;
+        }
+        code {font-family: 'Courier New', monospace; color:#8cd5ff;}
+        .mentor {
+            text-align:center;
+            margin-top:2rem;
+            font-size:1.1rem;
+            color:var(--text-muted);
+        }
+        .mentor span {
+            color:var(--primary);
+            font-weight:bold;
+        }
+        @media(max-width:600px){
+            h1 {font-size:2rem;}
+            .day {padding:1rem;}
+            .day-title {font-size:1.2rem;}
+        }
+        :root {
+            --primary: #4a9eff;
+            --primary-dark: #3d8bef;
+            --bg: #0f1115;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        * {margin:0;padding:0;box-sizing:border-box;}
+        html, body {
+            font-family: 'Segoe UI', sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.7;
+            scroll-behavior:smooth;
+        }
+        body {
+            padding: 80px 5% 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 {
+            text-align:center;
+            font-size:2.5rem;
+            color:var(--primary);
+            margin-bottom:1.5rem;
+        }
+        .day {
+            background:var(--card-bg);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:14px;
+            padding:1.5rem;
+            margin-bottom:1.5rem;
+            transition:.3s;
+        }
+        .day:hover {
+            transform:translateY(-3px);
+            box-shadow:0 8px 25px rgba(74,158,255,0.15);
+        }
+        .day img {
+            width:100%;
+            border-radius:10px;
+            margin-bottom:1rem;
+        }
+        .day-title {
+            font-size:1.4rem;
+            font-weight:bold;
+            margin-bottom:.5rem;
+            color:var(--primary);
+        }
+        .day-title i {
+            margin-right:6px;
+            color:var(--primary-dark);
+        }
+        .mentor {
+            text-align:center;
+            margin-top:2rem;
+            font-size:1.1rem;
+            color:var(--text-muted);
+        }
+        .mentor span {
+            color:var(--primary);
+            font-weight:bold;
+        }
+        @media(max-width:600px){
+            h1 {font-size:2rem;}
+            .day {padding:1rem;}
+            .day-title {font-size:1.2rem;}
+        }
+
+    :root {
+        --primary: #4a9eff;
+        --primary-dark: #3d8bef;
+        --bg: #0f1115;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --text: #fff;
+        --text-muted: #aaa;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;}
+    header {position:fixed;top:0;left:0;right:0;background:rgba(15,17,21,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);}
+    .logo {font-size:1.6rem;font-weight:bold;color:var(--primary);text-decoration:none;}
+    .nav-links {display:flex;gap:2rem;list-style:none;}
+    .nav-links a {color:var(--text-muted);text-decoration:none;font-weight:500;transition:.3s;}
+    .nav-links a:hover, .nav-links a.active {color:var(--primary);}
+    .dark-mode-toggle {background:none;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;}
+
+    section {padding:100px 5% 60px;max-width:1200px;margin:auto;}
+    .section-title {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;}
+
+    .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+    .project-card {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:.3s;}
+    .project-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(74,158,255,0.15);}
+    .project-image img {width:100%;display:block;height:180px;object-fit:cover;}
+    .project-content {padding:1rem;}
+    .project-title {font-size:1.3rem;margin-bottom:.3rem;}
+    .project-tags {display:flex;gap:.5rem;margin-bottom:.5rem;flex-wrap:wrap;}
+    .project-tag {background:rgba(74,158,255,0.15);padding:3px 8px;border-radius:5px;font-size:.8rem;}
+    .project-description {color:var(--text-muted);font-size:.95rem;}
+
+    .mentors {margin-top:1rem;color:var(--primary);font-weight:500;font-size:0.95rem;}
+
+    footer {background:rgba(255,255,255,0.05);padding:2rem;text-align:center;margin-top:3rem;}
+    .footer-logo {font-size:1.5rem;color:var(--primary);text-decoration:none;display:inline-block;margin-bottom:.5rem;}
+    .footer-links {display:flex;justify-content:center;gap:1rem;margin:1rem 0;}
+    .footer-links a {color:var(--text-muted);text-decoration:none;transition:.3s;}
+    .footer-links a:hover {color:var(--primary);}
+    .footer-text {color:var(--text-muted);margin-top:.5rem;}
+
+    @media(max-width:768px){header{flex-direction:column;}.projects-grid{grid-template-columns:1fr;}}
+ 
+    </style>
+</head>
+<body>
+    <header>
+    <a href="#" class="logo">PORT<span style="color:var(--primary-dark);">FOLIO</span></a>
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#projects">laser</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+    </ul>
+</header>
+    <h1><i class="fas fa-book"></i> 7-Day OOPs Learning Journey with Java</h1>
+
+    <div class="overview">
+        <p>This documentation showcases my 7-day structured learning plan (2 hours/day) to master Object-Oriented Programming (OOPs) in Java. 
+        Each day I studied theory, implemented concepts, and practiced with hands-on code. 
+        By the end, I had a solid grasp of the four OOP pillars (Encapsulation, Abstraction, Inheritance, Polymorphism) 
+        and built a mini Library Management System project.</p>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 1 – Programming Fundamentals</div>
+        <p>• Learned variables, operators, loops, and conditionals.<br>
+           • Practiced writing functions and simple problem-solving (factorial, prime, Fibonacci).</p>
+        <pre><code>// Day1Basics.java
+public class Day1Basics {
+    static int factorial(int n) {
+        int result = 1;
+        for (int i = 2; i <= n; i++) result *= i;
+        return result;
+    }
+
+    static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int a = 10, b = 3;
+        System.out.println("a + b = " + (a + b));
+        System.out.println("Factorial of 5 = " + factorial(5));
+        System.out.println("Is 13 prime? " + isPrime(13));
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 2 – Functions & Recursion</div>
+        <p>• Explored modular programming with functions.<br>
+           • Implemented recursion for factorial and Fibonacci.</p>
+        <pre><code>// Day2Functions.java
+public class Day2Functions {
+    static int factorialRec(int n) {
+        if (n <= 1) return 1;
+        return n * factorialRec(n - 1);
+    }
+
+    static int fibRec(int n) {
+        if (n <= 1) return n;
+        return fibRec(n - 1) + fibRec(n - 2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Factorial(5) = " + factorialRec(5));
+        System.out.println("Fibonacci(6) = " + fibRec(6));
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 3 – Classes & Objects</div>
+        <p>• Learned about classes, objects, constructors, and methods.<br>
+           • Implemented a Car class with attributes and methods.</p>
+        <pre><code>// Car.java
+class Car {
+    String brand, model;
+    int year, mileage;
+
+    Car(String brand, String model, int year, int mileage) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.mileage = mileage;
+    }
+
+    void drive(int km) {
+        mileage += km;
+        System.out.println("Driven " + km + " km. Mileage: " + mileage);
+    }
+
+    void display() {
+        System.out.println(brand + " " + model + " (" + year + ") - " + mileage + " km");
+    }
+}
+
+public class Day3CarDemo {
+    public static void main(String[] args) {
+        Car c1 = new Car("Toyota", "Yaris", 2020, 0);
+        c1.display();
+        c1.drive(120);
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 4 – Encapsulation & Abstraction</div>
+        <p>• Studied access modifiers (private, public).<br>
+           • Used getters & setters for data hiding.</p>
+        <pre><code>// BankAccount.java
+class BankAccount {
+    private String accountNumber;
+    private String owner;
+    private double balance;
+
+    BankAccount(String accountNumber, String owner, double balance) {
+        this.accountNumber = accountNumber;
+        this.owner = owner;
+        this.balance = balance;
+    }
+
+    public double getBalance() { return balance; }
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) balance -= amount;
+        else System.out.println("Insufficient funds!");
+    }
+
+    public void display() {
+        System.out.println("Account: " + accountNumber + ", Owner: " + owner + ", Balance: " + balance);
+    }
+}
+
+public class Day4BankDemo {
+    public static void main(String[] args) {
+        BankAccount acct = new BankAccount("AC123", "Anshuman", 500);
+        acct.display();
+        acct.deposit(250);
+        acct.withdraw(200);
+        acct.display();
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 5 – Inheritance</div>
+        <p>• Learned code reusability through inheritance.<br>
+           • Implemented a Person class and extended it with Student.</p>
+        <pre><code>// Person.java
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+class Student extends Person {
+    String rollNo, course;
+
+    Student(String name, int age, String rollNo, String course) {
+        super(name, age);
+        this.rollNo = rollNo;
+        this.course = course;
+    }
+
+    @Override
+    void display() {
+        super.display();
+        System.out.println("Roll No: " + rollNo + ", Course: " + course);
+    }
+}
+
+public class Day5InheritanceDemo {
+    public static void main(String[] args) {
+        Student s = new Student("Tanu", 20, "IT40", "B.E. IT");
+        s.display();
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 6 – Polymorphism</div>
+        <p>• Learned method overriding and runtime polymorphism using abstract classes.</p>
+        <pre><code>// Shape.java
+abstract class Shape {
+    abstract double area();
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(double radius) { this.radius = radius; }
+
+    @Override
+    double area() { return Math.PI * radius * radius; }
+}
+
+class Rectangle extends Shape {
+    double w, h;
+    Rectangle(double w, double h) { this.w = w; this.h = h; }
+
+    @Override
+    double area() { return w * h; }
+}
+
+public class Day6PolymorphismDemo {
+    public static void main(String[] args) {
+        Shape s1 = new Circle(5);
+        Shape s2 = new Rectangle(4, 6);
+
+        System.out.println("Circle area = " + s1.area());
+        System.out.println("Rectangle area = " + s2.area());
+    }
+}</code></pre>
+    </div>
+
+    <div class="day">
+        <div class="day-title"><i class="fas fa-calendar-day"></i> Day 7 – Mini Project (Library Management System)</div>
+        <p>• Applied Encapsulation, Inheritance, and Polymorphism.<br>
+           • Designed a Library system with Book, Member, and Library classes.</p>
+        <pre><code>// Book.java
+class Book {
+    String title, author, isbn;
+
+    Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+
+    void display() {
+        System.out.println("Book: " + title + " by " + author + " [ISBN: " + isbn + "]");
+    }
+}
+
+class Member {
+    String name;
+    int memberId;
+
+    Member(String name, int memberId) {
+        this.name = name;
+        this.memberId = memberId;
+    }
+
+    void display() {
+        System.out.println("Member: " + name + " (ID: " + memberId + ")");
+    }
+}
+
+class Library {
+    Book[] books;
+    int count;
+
+    Library(int size) {
+        books = new Book[size];
+        count = 0;
+    }
+
+    void addBook(Book b) {
+        if (count < books.length) {
+            books[count++] = b;
+            System.out.println("Book added: " + b.title);
+        } else {
+            System.out.println("Library is full!");
+        }
+    }
+
+    void showBooks() {
+        System.out.println("--- Library Books ---");
+        for (int i = 0; i < count; i++) books[i].display();
+    }
+}
+
+public class Day7LibraryDemo {
+    public static void main(String[] args) {
+        Library lib = new Library(5);
+        Book b1 = new Book("OOP in Java", "James Gosling", "111");
+        Book b2 = new Book("Clean Code", "Robert Martin", "222");
+        Member m1 = new Member("Anshuman", 101);
+
+        lib.addBook(b1);
+        lib.addBook(b2);
+
+        m1.display();
+        lib.showBooks();
+    }
+}</code></pre>
+    </div>
+
+    <div class="overview">
+        <h3>Key Outcomes:</h3>
+        <ul>
+            <li>Mastered OOP pillars (Encapsulation, Abstraction, Inheritance, Polymorphism).</li>
+            <li>Learned how to design real-world systems in Java.</li>
+            <li>Completed a mini project for portfolio demonstration.</li>
+        </ul>
+    </div>
+
+    <p class="mentor">👨‍🏫 <strong>Mentor:</strong> <span>Atharv Pathak (AP)</span></p>
+</body>
+</html>

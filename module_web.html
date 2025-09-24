@@ -4,68 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammad Ammar - Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4a9eff;
-            --primary-dark: #3d8bef;
-            --bg: #0f1115;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text: #fff;
-            --text-muted: #aaa;
-        }
-        * {margin:0;padding:0;box-sizing:border-box;}
-        body {font-family: 'Segoe UI', sans-serif;background:var(--bg);color:var(--text);line-height:1.7;scroll-behavior:smooth;}
-        header {position:fixed;top:0;left:0;right:0;background:rgba(15,17,21,0.85);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:999;border-bottom:1px solid rgba(255,255,255,0.1);}
-        .logo {font-size:1.6rem;font-weight:bold;color:var(--primary);text-decoration:none;}
-        .nav-links {display:flex;gap:2rem;list-style:none;}
-        .nav-links a {color:var(--text-muted);text-decoration:none;font-weight:500;transition:.3s;}
-        .nav-links a:hover, .nav-links a.active {color:var(--primary);}
-        .dark-mode-toggle {background:none;border:none;color:var(--primary);cursor:pointer;font-size:1.2rem;}
 
-        section {padding:100px 5% 60px;max-width:1200px;margin:auto;}
-        .section-title {font-size:2rem;color:var(--primary);margin-bottom:1.5rem;}
-
-        .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-        .project-card {background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:.3s;}
-        .project-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(74,158,255,0.15);}
-        .project-image img {width:100%;display:block;}
-        .project-content {padding:1rem;}
-        .project-title {font-size:1.3rem;margin-bottom:.3rem;}
-        .project-tags {display:flex;gap:.5rem;margin-bottom:.5rem;}
-        .project-tag {background:rgba(74,158,255,0.15);padding:3px 8px;border-radius:5px;font-size:.8rem;}
-        .project-description {color:var(--text-muted);font-size:.95rem;}
-
-        .contact-container {display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-        .contact-info, .contact-form {background:var(--card-bg);padding:2rem;border-radius:14px;border:1px solid rgba(255,255,255,0.08);}
-        .contact-heading {color:var(--primary);margin-bottom:.8rem;}
-        .contact-details {margin:1rem 0;}
-        .contact-detail {display:flex;gap:1rem;margin-bottom:1rem;}
-        .contact-icon i {color:var(--primary);font-size:1.2rem;}
-        .social-links {display:flex;gap:1rem;margin-top:1rem;}
-        .social-link {color:var(--text-muted);font-size:1.3rem;transition:.3s;}
-        .social-link:hover {color:var(--primary);}
-
-        form input, form textarea {width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;color:white;margin-bottom:1rem;}
-        .form-submit {background:var(--primary);color:white;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;transition:.3s;}
-        .form-submit:hover {background:var(--primary-dark);}
-
-        footer {background:rgba(255,255,255,0.05);padding:2rem;text-align:center;margin-top:3rem;}
-        .footer-logo {font-size:1.5rem;color:var(--primary);text-decoration:none;display:inline-block;margin-bottom:.5rem;}
-        .footer-links {display:flex;justify-content:center;gap:1rem;margin:1rem 0;}
-        .footer-links a {color:var(--text-muted);text-decoration:none;transition:.3s;}
-        .footer-links a:hover {color:var(--primary);}
-        .footer-text {color:var(--text-muted);margin-top:.5rem;}
-
-        @media(max-width:768px){.contact-container{grid-template-columns:1fr;}header{flex-direction:column;}}
-    </style>
 </head>
 <body>
     <header>
         <a href="#" class="logo">PORT<span style="color:var(--primary-dark);">FOLIO</span></a>
         <ul class="nav-links">
             <li><a href="./index.html">Home</a></li>
-            <li><a href="#projects">WebDev</a></li>
+            <li><a href="#projects" class="active">WebDev</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><button class="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
         </ul>
@@ -117,7 +66,7 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h3 class="contact-heading">Get In Touch</h3>
-                <p class="contact-text">Open to collaborations and discussions.</p>
+                <p class="contact-text">Open to collaborations, discussions, and new opportunities.</p>
                 <div class="contact-details">
                     <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>mammar1109@gmail.com</p></div></div>
                     <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+91-98818-48251</p></div></div>
@@ -148,7 +97,6 @@
         <p class="footer-text">Creating innovative solutions with the Force of technology.</p>
         <div class="footer-links">
             <a href="#home">Home</a>
-            <a href="#projects">WebDev</a>
             <a href="#contact">Contact</a>
         </div>
         <p class="copyright">© 2025 Mohammad Ammar. All rights reserved.</p>
